@@ -24,18 +24,9 @@ const foodSchema = new mongoose.Schema({
     imageUrl:{type:String,default:null}
 })
 
-const orderSchema = new mongoose.Schema({
-    orderItems:{type:Array,default:[]},
-    userId:{type:String,required:true},
-    deliveryAddress:{type:String,required:true},
-    orderAmount:{type:Number,required:true},
-    contact:{type:String,required:true},
-    status:{type:String,default:"Ordered"},
-    orderedAt:{type:Date,default:Date.now()}
-})
+
 
 let usersModel = mongoose.model('users',userSchema);
 let foodModel = mongoose.model('foods',foodSchema);
-let orderModel = mongoose.model('orders',orderSchema)
 
-module.exports={mongoose,usersModel,foodModel,orderModel}
+module.exports={mongoose,usersModel,foodModel}

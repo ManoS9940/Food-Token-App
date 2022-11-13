@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 const {mongodb,dbUrl} = require('../config/dbConfig')
-const {mongoose,foodModel,orderModel} = require('../config/dbSchema')
+const {mongoose,foodModel} = require('../config/dbSchema')
 const {validateToken,adminGaurd} = require('../config/auth')
 mongoose.connect(dbUrl)
 
-router.get('/all-food',validateToken,async(req, res)=>{
+router.get('/all-food',async(req, res)=>{
   try {
     let food = await foodModel.find()
     res.send({

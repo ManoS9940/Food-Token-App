@@ -23,11 +23,6 @@ let createToken = async({email,role})=>{
     return token;
 }
 
-let decodeToken = async(token)=>{
-    let data = jwt.decode(token)
-    return data
-}
-
 
 let validateToken = async(req,res,next)=>{
     if(req.headers && req.headers.authorization)
@@ -76,4 +71,4 @@ let validateToken = async(req,res,next)=>{
         })
     }
 }
-module.exports={hashPassword,hashCompare,createToken,decodeToken,validateToken,adminGaurd}
+module.exports={hashPassword,hashCompare,createToken,validateToken,adminGaurd}
